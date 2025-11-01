@@ -124,15 +124,75 @@ def recommend(df, user_name, top_n=6):
 # ---------------------------
 # Fake Chat Window (Prototype)
 # ---------------------------
-FAKE_RESPONSES = [
-    "Haha that's funny 😂",
-    "Oh wow, tell me more!",
-    "That's interesting 😄",
-    "Same here 😅",
-    "Lol you're cool 😎",
-    "No way! Really?",
-    "Agreed 💯"
-]
+import random
+
+# --- Smart fake responses ---
+def get_fake_response(user_msg):
+    msg = user_msg.lower().strip()
+
+    greetings = ["hi", "hello", "hey", "heyy", "heyyy", "yo"]
+    goodbyes = ["bye", "goodbye", "see ya", "see you", "later"]
+    thanks = ["thank", "thanks", "thank you", "appreciate"]
+    questions = ["how are you", "what's up", "how’s it going", "how r u"]
+
+    if any(g in msg for g in greetings):
+        return random.choice([
+            "Heyy 👋 how’s it going?",
+            "Hello there 😄",
+            "Hey! How are you?",
+            "Hi hi! 👋",
+            "Yo! What’s up?"
+        ])
+
+    elif any(q in msg for q in questions):
+        return random.choice([
+            "I’m good, just chilling 😌 you?",
+            "Doing great! How about you?",
+            "All good here 😄 what about you?",
+            "Pretty relaxed tbh 😎 you?"
+        ])
+
+    elif any(t in msg for t in thanks):
+        return random.choice([
+            "Aww you’re welcome 😊",
+            "Anytime!",
+            "Glad to help 😄",
+            "No problem at all 🙌"
+        ])
+
+    elif any(b in msg for b in goodbyes):
+        return random.choice([
+            "Bye bye 👋 take care!",
+            "See you soon 😄",
+            "Later! ✌️",
+            "Goodbye 👋"
+        ])
+
+    elif "?" in msg:
+        return random.choice([
+            "Hmm good question 🤔",
+            "That’s interesting, what do you think?",
+            "Not sure honestly 😅",
+            "Haha maybe! 😄"
+        ])
+
+    # Default casual response
+    else:
+        return random.choice([
+            "Haha that’s cool 😄",
+            "Nicee 😎",
+            "Oh really? Tell me more!",
+            "I get that 😌",
+            "Lol same 😂",
+            "That’s awesome!",
+            "You sound fun haha",
+            "Totally agree 😁",
+            "Omg same here 😅",
+            "That’s kinda nice tbh 😌"
+        ])
+
+
+
 
 def chat_page(me, partner):
     st.title(f"💬 Chat with {partner}")
@@ -177,10 +237,13 @@ def chat_page(me, partner):
 
     # Send message
     if send and msg.strip():
-        chat_history.append((me, msg.strip()))
-        chat_history.append((partner, random.choice(FAKE_RESPONSES)))
+        user_msg = msg.strip()
+        chat_history.append((me, user_msg))
+        bot_reply = get_fake_response(user_msg)   # ← smarter response
+        chat_history.append((partner, bot_reply))
         st.session_state[chat_key] = chat_history
         st.rerun()
+
 
 
 
@@ -201,7 +264,7 @@ if "chat" in query_params:
 # ---------------------------
 # Main App
 # ---------------------------
-st.title("🏠 StayPals — Minimal Matches + Chat Sidebar")
+st.title("🏠 StayPals")
 st.caption("Create profile → pick what matters → get recommendations. Click 💬 to chat!")
 
 # Sidebar
