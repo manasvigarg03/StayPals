@@ -271,6 +271,25 @@ st.caption("Create profile → pick what matters → get recommendations. Click 
 st.sidebar.header("Actions")
 mode = st.sidebar.radio("Mode", ["Create Profile", "Get Recommendations"])
 
+# ---------------------------
+# 📂 Data Tools Section (for admins / debugging)
+# ---------------------------
+st.sidebar.header("📂 Data Tools")
+
+if st.sidebar.button("View Current Users Data"):
+    df = load_users()
+    st.write("### 👥 Current Users Data")
+    st.dataframe(df)
+
+csv_data = load_users().to_csv(index=False).encode("utf-8")
+st.sidebar.download_button(
+    label="⬇️ Download users_data.csv",
+    data=csv_data,
+    file_name="users_data.csv",
+    mime="text/csv"
+)
+
+
 # Create Profile Mode
 if mode == "Create Profile":
     st.subheader("📝 Create Profile")
