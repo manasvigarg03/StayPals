@@ -124,9 +124,6 @@ def recommend(df, user_name, top_n=6):
 # ---------------------------
 # Fake Chat Window (Prototype)
 # ---------------------------
-import random
-
-# --- Smart fake responses ---
 def get_fake_response(user_msg):
     msg = user_msg.lower().strip()
 
@@ -143,7 +140,6 @@ def get_fake_response(user_msg):
             "Hi hi! 👋",
             "Yo! What’s up?"
         ])
-
     elif any(q in msg for q in questions):
         return random.choice([
             "I’m good, just chilling 😌 you?",
@@ -151,7 +147,6 @@ def get_fake_response(user_msg):
             "All good here 😄 what about you?",
             "Pretty relaxed tbh 😎 you?"
         ])
-
     elif any(t in msg for t in thanks):
         return random.choice([
             "Aww you’re welcome 😊",
@@ -159,7 +154,6 @@ def get_fake_response(user_msg):
             "Glad to help 😄",
             "No problem at all 🙌"
         ])
-
     elif any(b in msg for b in goodbyes):
         return random.choice([
             "Bye bye 👋 take care!",
@@ -167,7 +161,6 @@ def get_fake_response(user_msg):
             "Later! ✌️",
             "Goodbye 👋"
         ])
-
     elif "?" in msg:
         return random.choice([
             "Hmm good question 🤔",
@@ -175,8 +168,6 @@ def get_fake_response(user_msg):
             "Not sure honestly 😅",
             "Haha maybe! 😄"
         ])
-
-    # Default casual response
     else:
         return random.choice([
             "Haha that’s cool 😄",
@@ -191,21 +182,16 @@ def get_fake_response(user_msg):
             "That’s kinda nice tbh 😌"
         ])
 
-
-
-
 def chat_page(me, partner):
     st.title(f"💬 Chat with {partner}")
     st.caption(f"You're chatting as **{me}**")
 
-    # Each chat pair gets its own history
     chat_key = f"chat_{me}_{partner}"
     if chat_key not in st.session_state:
         st.session_state[chat_key] = []
 
     chat_history = st.session_state[chat_key]
 
-    # Show chat messages
     st.markdown("<hr>", unsafe_allow_html=True)
     for sender, msg in chat_history:
         align = "right" if sender == me else "left"
@@ -227,7 +213,6 @@ def chat_page(me, partner):
             unsafe_allow_html=True
         )
 
-    # User input
     st.markdown("<hr>", unsafe_allow_html=True)
     msg = st.text_input("Type your message", key=f"input_{chat_key}")
 
@@ -235,17 +220,13 @@ def chat_page(me, partner):
     with col1:
         send = st.button("Send", key=f"send_{chat_key}")
 
-    # Send message
     if send and msg.strip():
         user_msg = msg.strip()
         chat_history.append((me, user_msg))
-        bot_reply = get_fake_response(user_msg)   # ← smarter response
+        bot_reply = get_fake_response(user_msg)
         chat_history.append((partner, bot_reply))
         st.session_state[chat_key] = chat_history
         st.rerun()
-
-
-
 
 # ---------------------------
 # MAIN UI
@@ -253,21 +234,15 @@ def chat_page(me, partner):
 users = load_users()
 query_params = st.query_params
 
-# If chat opened in new tab
 if "chat" in query_params:
     me = query_params.get("me", "You")
     partner = query_params.get("chat")
     chat_page(me, partner)
     st.stop()
 
-
-# ---------------------------
-# Main App
-# ---------------------------
 st.title("🏠 StayPals")
 st.caption("Create profile → pick what matters → get recommendations. Click 💬 to chat!")
 
-# Sidebar
 st.sidebar.header("Actions")
 mode = st.sidebar.radio("Mode", ["Create Profile", "Get Recommendations"])
 
@@ -289,14 +264,20 @@ st.sidebar.download_button(
     mime="text/csv"
 )
 
-
+# ---------------------------
+# ---------------------------
+# ---------------------------
 # Create Profile Mode
+# ---------------------------
 if mode == "Create Profile":
     st.subheader("📝 Create Profile")
+
+    # --- BASIC PROFILE FORM ---
     with st.form("profile_form"):
         name = st.text_input("Full name")
         age = st.number_input("Age", 18, 60, 22)
         gender = st.selectbox("Gender", ["Female", "Male", "Other"])
+
         col1, col2 = st.columns(2)
         with col1:
             cleanliness = st.slider("Cleanliness", 1, 5, 3)
@@ -308,33 +289,73 @@ if mode == "Create Profile":
             pet = st.selectbox("Comfort with pets?", ["No", "Yes"])
             cooking = st.slider("Cooking habit", 1, 5, 3)
 
-        st.markdown("### What *matters* to you?")
-        select_all = st.checkbox("Select All", True)
-        matters = {f: st.checkbox(f, select_all) for f in FEATURES}
+        st.markdown("### 💬 Choose tags that describe you best:")
+        TAG_OPTIONS = [
+            "Chill", "Extrovert", "Introvert", "Organized", "Spontaneous",
+            "Homebody", "Party-lover", "Minimalist", "Night owl", "Early bird",
+            "Gym freak", "Easygoing", "Creative", "Adventurous", "Talkative", "Calm",
+            "Netflix", "Reading", "Music lover", "Gamer", "Traveller", "Foodie",
+            "Photography", "Fashion", "Cooking", "Yoga", "Meditation", "Tech geek", "Bookworm",
+            "Clean freak", "Pet lover", "Smoker", "Non-smoker", "Vegetarian",
+            "Non-vegetarian", "Prefers quiet", "Likes guests over", "Study focused", "Chill roommate",
+            "Funny", "Sarcastic", "Empathetic", "Friendly", "Supportive",
+            "Open-minded", "Peaceful", "Low drama", "Respectful"
+        ]
+        selected_tags = st.multiselect("Select tags:", TAG_OPTIONS)
 
-        submit = st.form_submit_button("Save")
+        submit = st.form_submit_button("Save Basic Info")
 
+    # --- WHAT MATTERS SECTION (outside form for instant updates) ---
+    st.markdown("### What *matters* to you?")
+
+    if "select_all_matters" not in st.session_state:
+        st.session_state["select_all_matters"] = False
+
+    select_all = st.checkbox("Select All", value=st.session_state["select_all_matters"])
+    st.session_state["select_all_matters"] = select_all
+
+    # Dynamically show feature checkboxes
+    matters = {}
+    cols = st.columns(2)
+    for i, f in enumerate(FEATURES):
+        with cols[i % 2]:
+            key = f"matters_{f}"
+            if key not in st.session_state:
+                st.session_state[key] = select_all
+            # If Select All changed, update the state
+            if select_all:
+                st.session_state[key] = True
+            matters[f] = st.checkbox(f, value=st.session_state[key], key=key)
+
+    # --- SAVE EVERYTHING AFTER BOTH SECTIONS FILLED ---
     if submit:
         if not name.strip():
             st.error("Name required.")
         else:
             row = {
-                "Name": name, "Age": age, "Gender": gender,
-                "Cleanliness": cleanliness, "Noise": noise,
+                "Name": name,
+                "Age": age,
+                "Gender": gender,
+                "Cleanliness": cleanliness,
+                "Noise": noise,
                 "Smoking": 1 if smoking == "Yes" else 0,
-                "SleepTime": sleeptime, "StudyTime": studytime,
+                "SleepTime": sleeptime,
+                "StudyTime": studytime,
                 "PetFriendly": 1 if pet == "Yes" else 0,
-                "Cooking": cooking
+                "Cooking": cooking,
+                "Tags": ", ".join(selected_tags)
             }
             for f in FEATURES:
-                row[f"Matters_{f}"] = 1 if matters[f] else 0
+                row[f"Matters_{f}"] = 1 if st.session_state[f"matters_{f}"] else 0
+
             users = pd.concat([users, pd.DataFrame([row])], ignore_index=True)
             save_users(users)
             st.session_state["current_user"] = name
             st.success(f"Profile saved for {name} ✅")
 
-
+# ---------------------------
 # Get Recommendations Mode
+# ---------------------------
 if mode == "Get Recommendations":
     st.subheader("🔎 Find Matches")
 
@@ -345,19 +366,49 @@ if mode == "Get Recommendations":
         current = st.session_state.get("current_user", names[0])
         selected = st.selectbox("Select your profile", names, index=names.index(current))
 
+        # Optional: Age filter
+        min_age, max_age = st.slider("Filter by age range", 18, 60, (20, 35))
+
         if st.button("Show recommendations"):
-            recs = recommend(users, selected)
+            # Apply age filter before recommendation
+            filtered_users = users[(users["Age"] >= min_age) & (users["Age"] <= max_age)]
+            recs = recommend(filtered_users, selected)
 
             if recs.empty:
                 st.info("No matches found.")
             else:
                 st.markdown("### 💡 Your Best Matches")
                 cols_per_row = 3
+                user_row = users[users["Name"] == selected].iloc[0]
+
+                # Ensure Tags column exists
+                if "Tags" not in users.columns:
+                    users["Tags"] = ""
+                    recs["Tags"] = ""
+
+                user_tags = set(str(user_row.get("Tags", "")).split(", ")) if user_row.get("Tags") else set()
+
                 for i in range(0, len(recs), cols_per_row):
                     cols = st.columns(cols_per_row)
                     for idx, col in enumerate(cols):
                         if i + idx < len(recs):
                             row = recs.iloc[i + idx]
+
+                            # --- Compatibility Score ---
+                            user_feats = np.array(user_row[FEATURES], dtype=float)
+                            match_feats = np.array(row[FEATURES], dtype=float)
+                            similarity = cosine_similarity([user_feats], [match_feats])[0][0]
+                            compatibility_score = int((similarity + 1) * 50)  # scale -1..1 to 0..100
+
+                            # --- Common Tags ---
+                            match_tags = set(str(row.get("Tags", "")).split(", ")) if row.get("Tags") else set()
+                            common_tags = user_tags.intersection(match_tags)
+                            tags_html = ""
+                            if common_tags:
+                                tags_html = "<p style='color:#4CAF50;font-size:13px;'>💚 Common: " + ", ".join(common_tags) + "</p>"
+                            else:
+                                tags_html = "<p style='color:#999;font-size:13px;'>No common tags</p>"
+
                             with col:
                                 st.markdown(
                                     f"""
@@ -372,10 +423,14 @@ if mode == "Get Recommendations":
                                         <p style='color:#ccc;margin:0;'>Age: {int(row['Age'])}</p>
                                         <p style='color:#aaa;margin:0;'>Gender: {row['Gender']}</p>
                                         <p style='color:#bbb;font-size:13px;'>🧹 Cleanliness: {row['Cleanliness']} | 🕓 Sleep: {row['SleepTime']}</p>
+                                        <p style='color:#FFD700;font-weight:bold;'>💞 Compatibility: {compatibility_score}%</p>
+                                        <p style='color:#888;font-size:12px;'>🏷️ {row.get('Tags', 'No tags')}</p>
+                                        {tags_html}
                                     </div>
                                     """,
                                     unsafe_allow_html=True,
                                 )
+
                                 chat_link = f"?chat={row['Name']}&me={selected}"
                                 st.markdown(
                                     f"<a href='{chat_link}' target='_blank'><button style='background-color:#4CAF50;color:white;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;'>💬 Chat</button></a>",
