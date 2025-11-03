@@ -1,53 +1,52 @@
-Name,Age,Gender,Cleanliness,Noise,Smoking,SleepTime,StudyTime,PetFriendly,Cooking,Matters_Cleanliness,Matters_Noise,Matters_Smoking,Matters_SleepTime,Matters_StudyTime,Matters_PetFriendly,Matters_Cooking
-Manasvi,20,Male,4,3,0,5,1,1,2,0,1,1,1,1,1,1
-Aarav,25,Female,5,3,0,2,1,1,4,1,1,1,1,1,1,0
-Riya,20,Male,5,1,1,5,2,0,1,1,1,1,0,1,1,1
-Kabir,26,Male,4,1,0,3,3,0,3,0,1,1,1,1,1,1
-Ananya,24,Female,5,2,0,3,4,0,3,0,1,1,0,0,1,1
-Ishaan,29,Female,1,5,0,4,1,0,4,1,1,1,1,1,1,0
-Diya,22,Male,4,1,1,1,5,0,4,1,1,1,1,1,0,1
-Vivaan,25,Female,3,3,0,1,2,0,3,1,1,1,1,1,0,1
-Neha,25,Male,3,3,0,3,4,0,4,0,1,1,1,0,0,1
-Aditya,29,Male,1,2,1,1,5,0,5,0,1,1,0,1,1,1
-Saanvi,29,Male,3,3,0,5,2,0,2,0,0,0,1,1,1,1
-Arjun,27,Female,5,3,1,1,3,1,3,1,0,1,0,0,1,1
-Meera,26,Female,5,1,0,1,2,1,2,1,1,1,1,0,1,1
-Rohan,22,Male,2,4,1,3,4,0,1,0,1,1,0,1,1,0
-Isha,27,Female,5,3,0,1,3,1,1,1,1,1,1,1,0,1
-Dev,21,Male,1,4,0,1,4,0,4,0,0,1,0,0,1,0
-Kritika,26,Female,1,3,1,1,2,1,5,1,1,1,1,1,0,0
-Karan,21,Male,3,3,0,4,1,0,2,1,1,1,1,1,0,1
-Tanya,25,Female,5,2,1,2,3,0,5,1,0,0,1,1,0,1
-Ayaan,25,Female,2,3,0,1,4,1,1,0,0,1,1,1,1,1
-Mira,23,Female,4,5,1,2,2,0,1,1,1,1,0,1,1,1
-Reyansh,29,Female,2,5,0,2,4,0,5,0,1,1,0,0,1,0
-Aditi,22,Female,5,5,0,5,1,1,5,1,0,1,0,1,1,0
-Laksh,20,Male,2,4,0,2,5,0,4,1,1,0,0,1,1,0
-Sonia,20,Female,1,5,1,1,4,0,2,1,1,1,0,0,0,0
-Parth,29,Male,2,5,0,3,3,0,5,0,0,0,0,0,0,1
-Pooja,29,Female,2,3,1,4,4,0,3,0,1,1,0,1,0,1
-Kunal,28,Female,3,1,0,5,1,0,5,0,0,1,1,1,0,1
-Sneha,25,Female,5,5,0,1,3,0,1,1,1,0,1,0,1,1
-Harsh,20,Male,1,3,0,5,4,1,3,1,1,1,1,0,1,0
-Simran,22,Male,2,4,0,2,2,0,4,1,1,1,1,1,0,1
-Yash,21,Female,5,3,0,4,5,1,2,1,1,0,0,0,1,1
-Anushka,28,Male,5,1,1,1,3,0,2,0,0,1,0,0,1,0
-Ritvik,29,Male,3,1,0,2,3,0,3,0,1,0,1,0,0,0
-Priya,28,Female,3,3,0,4,5,0,5,0,1,1,1,1,1,1
-Arnav,25,Female,3,1,1,2,2,0,4,1,1,1,0,0,0,1
-Ira,29,Male,5,1,0,5,1,0,3,1,1,0,1,1,1,1
-Tanmay,22,Male,2,5,0,4,4,0,4,1,1,0,1,1,0,1
-Shreya,29,Male,5,3,1,2,4,0,2,0,0,0,1,1,0,1
-Rudra,26,Female,2,2,0,2,4,0,3,1,0,1,0,0,1,1
-Aisha,26,Male,5,3,1,2,3,0,5,1,1,1,0,1,1,1
-Nikhil,27,Male,1,2,0,4,1,0,3,1,1,1,1,0,1,1
-Avni,26,Female,4,4,0,1,3,1,4,0,1,1,0,1,1,1
-Devansh,24,Male,5,4,1,5,1,0,4,1,0,0,1,1,0,0
-Charvi,21,Male,1,3,0,3,4,0,4,1,1,1,1,1,0,1
-Hriday,21,Male,5,1,1,1,4,0,3,1,1,1,1,1,0,1
-Tara,27,Female,4,5,1,4,4,0,4,1,1,0,0,0,1,0
-Vihaan,20,Male,3,3,0,2,1,1,1,1,1,1,1,1,1,1
-Ritika,21,Female,4,5,0,4,5,1,3,0,0,1,1,1,0,0
-Aryan,24,Male,1,4,0,1,1,0,4,1,1,0,1,1,0,1
-
-
+Name,Age,Gender,Cleanliness,Noise,Smoking,SleepTime,StudyTime,PetFriendly,Cooking,Matters_Cleanliness,Matters_Noise,Matters_Smoking,Matters_SleepTime,Matters_StudyTime,Matters_PetFriendly,Matters_Cooking,Tags
+Manasvi,20,Male,4,3,0,5,1,1,2,0,1,1,1,1,1,1,"Music lover, Night owl, Chill, Funny"
+Aarav,25,Female,5,3,0,2,1,1,4,1,1,1,1,1,1,0,"Pet lover, Calm, Netflix, Friendly"
+Riya,20,Male,5,1,1,5,2,0,1,1,1,1,0,1,1,1,"Extrovert, Party-lover, Gym freak, Talkative"
+Kabir,26,Male,4,1,0,3,3,0,3,0,1,1,1,1,1,1,"Organized, Night owl, Music lover, Funny"
+Ananya,24,Female,5,2,0,3,4,0,3,0,1,1,0,0,1,1,"Introvert, Chill roommate, Reading, Calm"
+Ishaan,29,Female,1,5,0,4,1,0,4,1,1,1,1,1,1,0,"Minimalist, Tech geek, Peaceful, Bookworm"
+Diya,22,Male,4,1,1,1,5,0,4,1,1,1,1,1,0,1,"Creative, Funny, Easygoing, Traveller"
+Vivaan,25,Female,3,3,0,1,2,0,3,1,1,1,1,1,0,1,"Pet lover, Extrovert, Foodie, Friendly"
+Neha,25,Male,3,3,0,3,4,0,4,0,1,1,1,0,0,1,"Netflix, Fashion, Calm, Non-smoker"
+Aditya,29,Male,1,2,1,1,5,0,5,0,1,1,0,1,1,1,"Party-lover, Adventurous, Funny, Music lover"
+Saanvi,29,Male,3,3,0,5,2,0,2,0,0,0,1,1,1,1,"Yoga, Chill, Peaceful, Reading"
+Arjun,27,Female,5,3,1,1,3,1,3,1,0,1,0,0,1,1,"Creative, Music lover, Easygoing, Friendly"
+Meera,26,Female,5,1,0,1,2,1,2,1,1,1,1,0,1,1,"Organized, Minimalist, Calm, Fashion"
+Rohan,22,Male,2,4,1,3,4,0,1,0,1,1,0,1,1,0,"Extrovert, Party-lover, Chill, Funny"
+Isha,27,Female,5,3,0,1,3,1,1,1,1,1,1,1,0,1,"Bookworm, Friendly, Respectful, Calm"
+Dev,21,Male,1,4,0,1,4,0,4,0,0,1,0,0,1,0,"Introvert, Tech geek, Chill roommate, Gamer"
+Kritika,26,Female,1,3,1,1,2,1,5,1,1,1,1,1,0,0,"Pet lover, Calm, Reading, Fashion"
+Karan,21,Male,3,3,0,4,1,0,2,1,1,1,1,1,0,1,"Gym freak, Music lover, Traveller, Friendly"
+Tanya,25,Female,5,2,1,2,3,0,5,1,0,0,1,1,0,1,"Minimalist, Night owl, Chill, Peaceful"
+Ayaan,25,Female,2,3,0,1,4,1,1,0,0,1,1,1,1,1,"Foodie, Pet lover, Extrovert, Friendly"
+Mira,23,Female,4,5,1,2,2,0,1,1,1,1,0,1,1,1,"Calm, Netflix, Chill roommate, Friendly"
+Reyansh,29,Female,2,5,0,2,4,0,5,0,1,1,0,0,1,0,"Music lover, Peaceful, Bookworm, Chill"
+Aditi,22,Female,5,5,0,5,1,1,5,1,0,1,0,1,1,0,"Pet lover, Music lover, Friendly, Calm"
+Laksh,20,Male,2,4,0,2,5,0,4,1,1,0,0,1,1,0,"Traveller, Extrovert, Chill, Night owl"
+Sonia,20,Female,1,5,1,1,4,0,2,1,1,1,0,0,0,0,"Funny, Netflix, Easygoing, Party-lover"
+Parth,29,Male,2,5,0,3,3,0,5,0,0,0,0,0,0,1,"Music lover, Peaceful, Minimalist, Calm"
+Pooja,29,Female,2,3,1,4,4,0,3,0,1,1,0,1,0,1,"Bookworm, Friendly, Netflix, Traveller"
+Kunal,28,Female,3,1,0,5,1,0,5,0,0,1,1,1,0,1,"Music lover, Chill roommate, Foodie, Gym freak"
+Sneha,25,Female,5,5,0,1,3,0,1,1,1,0,1,0,1,1,"Organized, Friendly, Calm, Netflix"
+Harsh,20,Male,1,3,0,5,4,1,3,1,1,1,1,0,1,0,"Funny, Extrovert, Gym freak, Music lover"
+Simran,22,Male,2,4,0,2,2,0,4,1,1,1,1,1,0,1,"Chill, Calm, Night owl, Friendly"
+Yash,21,Female,5,3,0,4,5,1,2,1,1,0,0,0,1,1,"Fashion, Chill, Netflix, Talkative"
+Anushka,28,Male,5,1,1,1,3,0,2,0,0,1,0,0,1,0,"Pet lover, Chill roommate, Calm, Music lover"
+Ritvik,29,Male,3,1,0,2,3,0,3,0,1,0,1,0,0,0,"Funny, Tech geek, Creative, Netflix"
+Priya,28,Female,3,3,0,4,5,0,5,0,1,1,1,1,1,1,"Organized, Calm, Chill, Music lover"
+Arnav,25,Female,3,1,1,2,2,0,4,1,1,1,0,0,0,1,"Pet lover, Extrovert, Friendly, Party-lover"
+Ira,29,Male,5,1,0,5,1,0,3,1,1,0,1,1,1,1,"Peaceful, Music lover, Funny, Night owl"
+Tanmay,22,Male,2,5,0,4,4,0,4,1,1,0,1,1,0,1,"Netflix, Gym freak, Funny, Chill roommate"
+Shreya,29,Male,5,3,1,2,4,0,2,0,0,0,1,1,0,1,"Calm, Bookworm, Minimalist, Friendly"
+Rudra,26,Female,2,2,0,2,4,0,3,1,0,1,0,0,1,1,"Traveller, Funny, Friendly, Music lover"
+Aisha,26,Male,5,3,1,2,3,0,5,1,1,1,0,1,1,1,"Creative, Calm, Netflix, Chill"
+Nikhil,27,Male,1,2,0,4,1,0,3,1,1,1,1,0,1,1,"Music lover, Peaceful, Traveller, Friendly"
+Avni,26,Female,4,4,0,1,3,1,4,0,1,1,0,1,1,1,"Chill roommate, Pet lover, Calm, Netflix"
+Devansh,24,Male,5,4,1,5,1,0,4,1,0,0,1,1,0,0,"Gym freak, Tech geek, Music lover, Funny"
+Charvi,21,Male,1,3,0,3,4,0,4,1,1,1,1,1,0,1,"Friendly, Peaceful, Music lover, Netflix"
+Hriday,21,Male,5,1,1,1,4,0,3,1,1,1,1,1,0,1,"Funny, Chill, Traveller, Music lover"
+Tara,27,Female,4,5,1,4,4,0,4,1,1,0,0,0,1,0,"Netflix, Chill roommate, Friendly, Calm"
+Vihaan,20,Male,3,3,0,2,1,1,1,1,1,1,1,1,1,1,"Pet lover, Friendly, Funny, Extrovert"
+Ritika,21,Female,4,5,0,4,5,1,3,0,0,1,1,1,0,0,"Fashion, Netflix, Peaceful, Music lover"
+Aryan,24,Male,1,4,0,1,1,0,4,1,1,0,1,1,0,1,"Extrovert, Funny, Chill, Friendly"
+TestUser1,22,Female,3,3,0,3,3,0,3,1,1,1,1,1,1,1,"Introvert, Minimalist, Gym freak"
