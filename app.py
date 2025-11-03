@@ -413,7 +413,7 @@ if mode == "Get Recommendations":
                                 st.markdown(
                                     f"""
                                     <div style="
-                                        background-color:#1e1e1e;
+                                        background-color:#2E2E2E;
                                         border-radius:18px;
                                         padding:20px;
                                         margin:10px;
@@ -439,3 +439,4 @@ if mode == "Get Recommendations":
 
 st.markdown("---")
 st.caption("Happy hunting 🏡")
+
