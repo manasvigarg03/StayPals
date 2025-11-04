@@ -423,7 +423,7 @@ if mode == "Get Recommendations":
                                         <p style='color:#ccc;margin:0;'>Age: {int(row['Age'])}</p>
                                         <p style='color:#aaa;margin:0;'>Gender: {row['Gender']}</p>
                                         <p style='color:#bbb;font-size:13px;'>🧹 Cleanliness: {row['Cleanliness']} | 🕓 Sleep: {row['SleepTime']}</p>
-                                        <p style='color:#FFD700;font-weight:bold;'>💞 Compatibility: {compatibility_score}%</p>
+                                        <p style='color:#FFD700;font-weight:bold;'> Compatibility: {compatibility_score}%</p>
                                         <p style='color:#888;font-size:12px;'>🏷️ {row.get('Tags', 'No tags')}</p>
                                         {tags_html}
                                     </div>
@@ -439,4 +439,5 @@ if mode == "Get Recommendations":
 
 st.markdown("---")
 st.caption("Happy hunting 🏡")
+
 
